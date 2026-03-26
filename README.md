@@ -7,6 +7,7 @@ OpenWrt package feed for [dome](https://github.com/ring0networks/dome) dependenc
 | Package | Description |
 |---------|------------|
 | `lua-curl-5.4` | Lua 5.4 bindings to libcurl ([Lua-cURLv3](https://github.com/Lua-cURL/Lua-cURLv3)) |
+| `lua-nftables-5.4` | Lua 5.4 bindings to libnftables ([luanftables](https://github.com/ring0networks/luanftables)) |
 | `lua-socket-5.4` | Lua 5.4 socket library ([LuaSocket](https://github.com/lunarmodules/luasocket)) |
 
 ## Usage
@@ -31,6 +32,7 @@ Enable packages in `make menuconfig`:
 
 ```
 Languages → Lua → lua-curl-5.4
+Languages → Lua → lua-nftables-5.4
 Languages → Lua → lua-socket-5.4
 ```
 
@@ -38,6 +40,7 @@ Languages → Lua → lua-socket-5.4
 
 ```bash
 make package/feeds/dome/lua-curl-5.4/compile V=s
+make package/feeds/dome/lua-nftables-5.4/compile V=s
 make package/feeds/dome/lua-socket-5.4/compile V=s
 ```
 
@@ -50,7 +53,9 @@ dome-feed                      luainkernel feed
 ├── lang/                      ├── kernel/
 │   ├── lua-curl-5.4            │   └── lunatik
 │   │   (libcurl + lua5.4)     └── lang/
-│   └── lua-socket-5.4               └── lua5.4
+│   ├── lua-nftables-5.4             └── lua5.4
+│   │   (nftables + lua5.4)
+│   └── lua-socket-5.4
 │       (lua5.4)
 ```
 
