@@ -49,14 +49,11 @@ make package/feeds/dome/lua-socket-5.4/compile V=s
 The dome system requires packages from two feeds:
 
 ```
-dome-feed                      luainkernel feed
-├── lang/                      ├── kernel/
-│   ├── lua-curl-5.4            │   └── lunatik
-│   │   (libcurl + lua5.4)     └── lang/
-│   ├── lua-nftables-5.4             └── lua5.4
-│   │   (nftables + lua5.4)
-│   └── lua-socket-5.4
-│       (lua5.4)
+dome-feed                  luainkernel feed
+├── lang/                  ├── kernel/
+│   ├── lua-curl-5.4       │   └── lunatik
+│   ├── lua-nftables-5.4   └── lang/
+│   └── lua-socket-5.4         └── lua5.4
 ```
 
 The `luainkernel` feed provides Lua 5.4 and the Lunatik kernel framework. This feed provides additional userspace dependencies.
