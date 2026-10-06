@@ -2,13 +2,13 @@
 # SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Lua 5.4 binding to LuaSocket
-# Based on openwrt/packages lang/luasocket, adapted for Lua 5.4
+# Lua 5.5 binding to LuaSocket
+# Based on openwrt/packages lang/luasocket, adapted for Lua 5.5
 #
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=lua-socket-5.4
+PKG_NAME:=lua-socket-5.5
 PKG_VERSION:=3.1.0
 PKG_RELEASE:=1
 PKG_LICENSE:=MIT
@@ -17,29 +17,29 @@ PKG_LICENSE_FILES:=LICENSE
 PKG_SOURCE_URL:=https://github.com/lunarmodules/luasocket.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
-PKG_MIRROR_HASH:=1ee81f1f5a63d0d14c8c8571e8940604cbf1443c3b18ee7d3d1bac6791f853fc
+PKG_MIRROR_HASH:=06d433c8b94dd39d52ec6e9b52ce545bebd22d3c5cc1387444035105281d8af4
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/lua-socket-5.4
+define Package/lua-socket-5.5
 	SUBMENU:=Lua
 	SECTION:=lang
 	CATEGORY:=Languages
-	TITLE:=Lua 5.4 socket library
-	DEPENDS:=+lua5.4
+	TITLE:=Lua 5.5 socket library
+	DEPENDS:=+lua5.5
 	URL:=https://github.com/lunarmodules/luasocket
 	MAINTAINER:=Ring Zero <dev@ringzero.com.br>
 endef
 
-define Package/lua-socket-5.4/description
+define Package/lua-socket-5.5/description
 	LuaSocket is the most comprehensive networking support
 	library for the Lua language. It provides easy access to
 	TCP, UDP, DNS, SMTP, FTP, HTTP, MIME and much more.
-	This package is built for Lua 5.4.
+	This package is built for Lua 5.5.
 endef
 
-LUA_MODULE_PATH:=/usr/local/lib/lua/5.4
-LUA_SHARE_PATH:=/usr/local/share/lua/5.4
+LUA_MODULE_PATH:=/usr/local/lib/lua/5.5
+LUA_SHARE_PATH:=/usr/local/share/lua/5.5
 
 define Build/Configure
 endef
@@ -49,11 +49,11 @@ define Build/Compile
 		LIBDIR="$(TARGET_LDFLAGS)" \
 		CC="$(TARGET_CC) $(TARGET_CFLAGS) $(TARGET_CPPFLAGS) $(FPIC)" \
 		LD="$(TARGET_CROSS)ld -shared" \
-		LUAV=5.4 LUAINC_linux_base=$(STAGING_DIR)/usr/include \
+		LUAV=5.5 LUAINC_linux_base=$(STAGING_DIR)/usr/include \
 		all
 endef
 
-define Package/lua-socket-5.4/install
+define Package/lua-socket-5.5/install
 	$(INSTALL_DIR) $(1)$(LUA_SHARE_PATH)
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/src/{ltn12,mime,socket}.lua \
 		$(1)$(LUA_SHARE_PATH)/
@@ -80,5 +80,5 @@ define Package/lua-socket-5.4/install
 		$(1)$(LUA_SHARE_PATH)/socket/
 endef
 
-$(eval $(call BuildPackage,lua-socket-5.4))
+$(eval $(call BuildPackage,lua-socket-5.5))
 
