@@ -15,7 +15,8 @@ PKG_LICENSE_FILES:=LICENSE
 
 PKG_SOURCE_URL:=https://github.com/ring0networks/luanftables.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=face82c
+PKG_SOURCE_VERSION:=face82c4d9f106b3c025333595d8d0bcea5ffc42
+PKG_MIRROR_HASH:=06094e11c2ff6bcffd18ce5e3c793d3eca87e5134c01c22113893e3d4cf62f19
 
 include $(INCLUDE_DIR)/package.mk
 
